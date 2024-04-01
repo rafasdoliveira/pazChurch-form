@@ -11,12 +11,12 @@ function App() {
     <>
       <Header />
       <div className="welcome">
-        <div className="text">
+        <div className="texto">
           <h1>Estamos felizes por sua decisão!</h1>
           <p>Preencha o formulário e nossa equipe entrará em contato com você!</p>
         </div>    
       </div>
-      <div className="visao">
+      {/* <div className="visao">
         <h2>Nossa Visão</h2>
         <div className="paragrafo">
           <p>A Paz Church Fortaleza é uma comunidade em crescimento, com cultos vibrantes marcados por um louvor inspirador e ministração da Palavra dinâmica.</p>
@@ -28,7 +28,7 @@ function App() {
         <p>Se você é novo convertido e ainda não faz parte de um LifeGroup, preencha o formulário abaixo.</p>
         <p className='convite'>Vamos amar te conhecer!</p>
         <Input />
-      </div>
+      </div> */}
     </>
   )
 }
