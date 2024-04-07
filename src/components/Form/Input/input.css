@@ -1,6 +1,35 @@
-input[type="text"] {
-    width: 700px;
-    height: 70px;
+.input {
+    display: flex;
+    border: 1px solid red;
+    align-items: center;
+    margin: 10px 0px;
+    width: 85%;
+    height: 40px;
     border-radius: 10px;
-    border: 1px solid #112F5C;
+    border: 1px solid #000;
+    box-shadow: 3px 4px 1px rgba(0, 0, 0, 0.1 );
+}
+
+input {
+    border: none;
+    background: transparent;
+    border: none;
+    padding: 0px 100px 0px 12px;
+    text-overflow: ellipsis; 
+    text-overflow: unset;
+    overflow: hidden;
+    white-space: nowrap;
+    outline: none;
+}
+
+input::placeholder {
+    color: #ccc;
+    align-items: center;
+
+}
+
+.input img {
+    width: 30px;
+    height: 20px;
+    margin: 0px 10px;
 }

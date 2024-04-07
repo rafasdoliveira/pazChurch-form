@@ -4,6 +4,7 @@ import Header from './components/Header/header'
 import './App.css'
 // Imagens
 import Input from './components/Form/Input/input'
+import Select from './components/Form/Select/select'
 
 function App() {
 
@@ -24,11 +25,16 @@ function App() {
           <p>Todos são convidados a fazer parte dessa família acolhedora.</p>
         </div>
       </div>
-      {/* <div className="seila">
-        <p>Se você é novo convertido e ainda não faz parte de um LifeGroup, preencha o formulário abaixo.</p>
-        <p className='convite'>Vamos amar te conhecer!</p>
+      <div className="forms">
+        <div className="forms-text">
+          <p>
+            Se você é novo convertido e ainda não faz paarte de um LifeGroup, preencha o formulario abaixo.</p>
+          <p className='bold'>Vamos amar te conhecer!</p>
+        </div>
         <Input />
-      </div> */}
+        {/* <Input /> */}
+        {/* <Select/> */}
+      </div>
     </>
   )
 }

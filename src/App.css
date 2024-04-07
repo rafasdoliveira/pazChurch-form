@@ -23,7 +23,6 @@
 
 .texto p {
     font-size: 10px;
-
 }
 
 .visao {
@@ -52,12 +51,30 @@
     text-align: justify;
 }
 
-/* .seila p {
-    font-size: 20px;
-    margin: 10px;
+.forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    width: 100%;
+    height: 100vh;
+}
+
+.forms-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
     text-align: center;
 }
 
-.seila .convite {
+.forms-text p {
+    width: 95%;
+    font-size: 13px;
+    line-height: 1.8;
+    align-items: center;
+}
+
+.forms-text .bold {
     font-weight: bold;
-} */
+}
+
