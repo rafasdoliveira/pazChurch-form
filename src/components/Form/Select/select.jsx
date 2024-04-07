@@ -4,7 +4,9 @@ const Select = () => {
   return (
     <>
      <select name="" id="">
-        <option value="">Teste</option>    
+        <option value="">Aquiraz</option>    
+        <option value="">Fortaleza - Sede</option>    
+        <option value="">Messejana</option>    
     </select> 
     </>
   )

@@ -6,3 +6,17 @@ select {
     border: 1px solid #112F5C;
 
 }
+
+option {
+    background-color: #fff;
+    color: #333;
+    height: 100px;
+  }
+  
+  option:hover {
+    background-color: #e0e0e0;
+  }
+  
+  option:active {
+    background-color: #ccc;
+  }
