@@ -31,9 +31,21 @@ function App() {
             Se você é novo convertido e ainda não faz paarte de um LifeGroup, preencha o formulario abaixo.</p>
           <p className='bold'>Vamos amar te conhecer!</p>
         </div>
-        <Input />
-        {/* <Input /> */}
-        {/* <Select/> */}
+        <div className="dados-pessoais">
+          <h3>Dados Pessoais</h3>
+          <Input />
+        </div>
+        <div className="dados-pessoais">
+          <h3>Endereço</h3>
+          {/* <Input /> */}
+        </div>
+        <div className="dados-pessoais">
+          <h3>Pastoral</h3>
+          {/* <Input /> */}
+        </div>
+        <div className="button">
+          <button>Enviar</button>
+        </div>
       </div>
     </>
   )
