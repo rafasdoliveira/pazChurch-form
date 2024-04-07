@@ -15,6 +15,10 @@ import Number from './assets/icons/Number.svg'
 import Neighbor from './assets/icons/Neighbor.svg'
 import Church from './assets/icons/Church.svg'
 import Group from './assets/icons/Group.svg'
+// API Cep
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 const inputData = [
   {id: 1, icon: User, type: 'text', placeholder: 'Insira seu nome', required: true}, 
@@ -28,6 +32,20 @@ const inputData = [
   {id: 9, icon: Church, type: 'text', placeholder: 'Insira seu campus', required: true},
   {id: 10, icon: Group, type: 'text', placeholder: 'Insira seu LifeGroup', required: true}
 ]
+
+const [cep, setCep] = useState('')
+
+axios.get(`viacep.com.br/ws/${cep}/json`, {
+  params: {
+    cep: '60873045'
+  }
+})
+  .then(function (response){ 
+    console.log({response})
+  })
+  .catch(function (error){
+    console.log({error})
+  })
 
 function App() {
 
@@ -51,7 +69,7 @@ function App() {
       <div className="forms">
         <div className="forms-text">
           <p>
-            Se você é novo convertido e ainda não faz paarte de um LifeGroup, preencha o formulario abaixo.</p>
+            Se você é novo convertido e ainda não faz parte de um LifeGroup, preencha o formulario abaixo.</p>
           <p className='bold'>Vamos amar te conhecer!</p>
         </div>
         <div className="dados-pessoais">
