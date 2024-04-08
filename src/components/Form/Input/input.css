@@ -44,8 +44,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-color: #a0d2eb; /* Altera a cor da borda quando em foco */
   }
 
-input::placeholder {
+/* input::placeholder {
     color: #ccc;
     align-items: center;
-}
+} */
 
