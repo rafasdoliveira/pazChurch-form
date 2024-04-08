@@ -3,12 +3,19 @@ import Header from './components/Header/header'
 import Input from './components/Form/Input/input'
 import Select from './components/Form/Select/select'
 import Footer from './components/Footer/footer'
+// Bibliotecas
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { PhoneInput } from 'react-international-phone'
 // Estilo 
 import './App.css'
+import 'react-international-phone/style.css'
 // Imagens
 import User from './assets/icons/Person.svg'
 import Calendar from './assets/icons/Calendar.svg'
 import Phone from './assets/icons/Phone.svg'
+// import ZipCode from './assets/icons/ZipCode.svg'
 import ZipCode from './assets/icons/ZipCode.svg'
 import Downtown from './assets/icons/Downtown.svg'
 import Local from './assets/icons/Local.svg'
@@ -16,25 +23,10 @@ import Number from './assets/icons/Number.svg'
 import Neighbor from './assets/icons/Neighbor.svg'
 import Church from './assets/icons/Church.svg'
 import Group from './assets/icons/Group.svg'
-// API Cep
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
 
-const inputData = [
-  {id: 1, icon: User, type: 'text', placeholder: 'Insira seu nome', required: true}, 
-  {id: 2, icon: Calendar, type: 'date', placeholder: 'Data de nascimento', required: true},
-  {id: 3, icon: Phone, type: 'tel', placeholder: 'Insira seu telefone', required: true},
-  {id: 4, icon: ZipCode, type: 'text', placeholder: 'Insira seu CEP', required: true},
-  {id: 5, icon: Downtown, type: 'text', placeholder: 'Insira sua cidade', required: true},
-  {id: 6, icon: Local, type: 'text', placeholder: 'Insira seu endereço', required: true},
-  {id: 7, icon: Number, type: 'number', placeholder: 'Insira o número da sua casa', required: true},
-  {id: 8, icon: Neighbor, type: 'text', placeholder: 'Insira seu bairro', required: true},
-  {id: 9, icon: Church, type: 'text', placeholder: 'Insira seu campus', required: true},
-  {id: 10, icon: Group, type: 'text', placeholder: 'Insira seu LifeGroup', required: true}
-]
+function App() {  
 
-function App() {
+  const [phone, setPhone] = useState('')
 
   const [cep, setCep] = useState('')
   const [endereco, setEndereco] = useState({
@@ -99,7 +91,10 @@ function App() {
             <input type="radio" /> Masculino
             <input type="radio" /> Feminino
           </div> */}
-          <Input img={Phone} type='tel' id='telefone' placeholder='Insira seu telefone' required={true}/>
+          {/* <Input img={Phone} type='tel' id='telefone' placeholder='Insira seu telefone' required={true}/> */}
+          <div className="input-phone">
+            <PhoneInput inputProps={{className: 'custom-props-input'}} defaultCountry="br" value={phone} onChange={setPhone} placeholder='Insira seu telefone' required={true}/>
+          </div>
         </div>
         <div className="dados-pessoais">
           <h3>Endereço</h3>
@@ -114,7 +109,7 @@ function App() {
           <Select img={Church} id='campus' placeholder='Insira seu campus' required={true}/>
           <Select img={Group} id='lifegroup' placeholder='Insira seu LifeGroup' required={true}/>
         </div>
-        <div className="button">
+        <div className="button-enviar">
           <button>Enviar</button>
         </div>
       </div>
