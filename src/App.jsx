@@ -103,7 +103,7 @@ function App() {
         </div>
         <div className="dados-pessoais">
           <h3>Endereço</h3>
-          <Input readOnly value={cep} img={ZipCode} type='text' id='cep' placeholder='Insira seu CEP' required={true} onChange={handleCep}/>
+          <Input value={cep} img={ZipCode} type='text' id='cep' placeholder='Insira seu CEP' required={true} onChange={handleCep}/>
           <Input readOnly value={endereco.cidade} img={Downtown} type='text' id='cidade' placeholder='Insira sua cidade' required={true}/>
           <Input readOnly value={endereco.logradouro} img={Local} type='text' id='endereco' placeholder='Insira seu endereço' required={true}/>
           <Input readOnly img={Number} type='number' id='numero' placeholder='Insira o número da sua casa' required={true}/>

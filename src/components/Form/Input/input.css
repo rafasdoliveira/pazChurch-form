@@ -16,10 +16,10 @@
 }
 
 input[type="text"],[type="date"],[type="tel"],[type="number"] {
-    border: none;
+    width: 80%;
     background: transparent;
     border: none;
-    padding: 0px 100px 0px 12px;
+    padding: 0px 10px; 
     text-overflow: ellipsis; 
     text-overflow: unset;
     overflow: hidden;
@@ -30,6 +30,5 @@ input[type="text"],[type="date"],[type="tel"],[type="number"] {
 input::placeholder {
     color: #ccc;
     align-items: center;
-    width: 250px;
 }
 
