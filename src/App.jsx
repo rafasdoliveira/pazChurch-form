@@ -2,6 +2,7 @@
 import Header from './components/Header/header'
 import Input from './components/Form/Input/input'
 import Select from './components/Form/Select/select'
+import Footer from './components/Footer/footer'
 // Estilo 
 import './App.css'
 // Imagens
@@ -33,21 +34,39 @@ const inputData = [
   {id: 10, icon: Group, type: 'text', placeholder: 'Insira seu LifeGroup', required: true}
 ]
 
-const [cep, setCep] = useState('')
-
-axios.get(`viacep.com.br/ws/${cep}/json`, {
-  params: {
-    cep: '60873045'
-  }
-})
-  .then(function (response){ 
-    console.log({response})
-  })
-  .catch(function (error){
-    console.log({error})
-  })
-
 function App() {
+
+  const [cep, setCep] = useState('')
+  const [endereco, setEndereco] = useState({
+    logradouro: "",
+    bairro: "",
+    cidade: "",
+    uf: ""
+  })
+
+  const handleCep = async (e) => {
+    const cepDigitado = e.target.value
+    setCep(cepDigitado)
+    
+
+    if (cepDigitado.length === 8) {
+      try {
+        const response = await axios.get(`https://viacep.com.br/ws/${cepDigitado}/json/`)
+        const data = response.data
+
+        setEndereco({
+          ...endereco,
+          logradouro: data.logradouro,
+          bairro: data.bairro,
+          cidade: data.localidade,
+          uf: data.uf
+        })
+      }
+      catch (error) {
+        console.log({error})
+      }
+    }
+  }
 
   return (
     <>
@@ -84,22 +103,22 @@ function App() {
         </div>
         <div className="dados-pessoais">
           <h3>Endereço</h3>
-          <Input img={ZipCode} type='text' id='cep' placeholder='Insira seu CEP' required={true}/>
-          <Input img={Downtown} type='text' id='cidade' placeholder='Insira sua cidade' required={true}/>
-          <Input img={Local} type='text' id='endereco' placeholder='Insira seu endereço' required={true}/>
-          <Input img={Number} type='number' id='numero' placeholder='Insira o número da sua casa' required={true}/>
-          <Input img={Neighbor} type='text' id='bairro' placeholder='Insira seu bairro' required={true}/>
+          <Input readOnly value={cep} img={ZipCode} type='text' id='cep' placeholder='Insira seu CEP' required={true} onChange={handleCep}/>
+          <Input readOnly value={endereco.cidade} img={Downtown} type='text' id='cidade' placeholder='Insira sua cidade' required={true}/>
+          <Input readOnly value={endereco.logradouro} img={Local} type='text' id='endereco' placeholder='Insira seu endereço' required={true}/>
+          <Input readOnly img={Number} type='number' id='numero' placeholder='Insira o número da sua casa' required={true}/>
+          <Input readOnly value={endereco.bairro} img={Neighbor} type='text' id='bairro' placeholder='Insira seu bairro' required={true}/>
         </div>
         <div className="dados-pessoais">
           <h3>Pastoral</h3>
           <Select img={Church} id='campus' placeholder='Insira seu campus' required={true}/>
           <Select img={Group} id='lifegroup' placeholder='Insira seu LifeGroup' required={true}/>
         </div>
-        
         <div className="button">
           <button>Enviar</button>
         </div>
       </div>
+      {/* <Footer /> */}
     </>
   )
 }

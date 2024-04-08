@@ -30,6 +30,6 @@ input[type="text"],[type="date"],[type="tel"],[type="number"] {
 input::placeholder {
     color: #ccc;
     align-items: center;
-
+    width: 250px;
 }
 
