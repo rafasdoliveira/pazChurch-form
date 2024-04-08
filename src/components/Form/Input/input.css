@@ -15,7 +15,7 @@
     margin: 0px 10px;
 }
 
-input[type="text"],[type="date"],[type="tel"],[type="number"] {
+input[type="text"],[type="tel"],[type="number"] {
     width: 80%;
     background: transparent;
     border: none;
@@ -26,6 +26,23 @@ input[type="text"],[type="date"],[type="tel"],[type="number"] {
     white-space: nowrap;
     outline: none;
 }
+
+input[type="date"] {
+    background-color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    /* display: none; */
+  }
+  
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  input[type="date"]:focus {
+    outline: none; /* Remove a borda de foco padrão */
+    border-color: #a0d2eb; /* Altera a cor da borda quando em foco */
+  }
 
 input::placeholder {
     color: #ccc;
