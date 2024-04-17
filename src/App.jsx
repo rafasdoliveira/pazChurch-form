@@ -98,7 +98,20 @@ function App() {
           <Input img={User} type="number" id="numeroCasa" placeholder="Insira o número da sua casa"/>
           <Input value={endereco.bairro} img={User} type="text" id="Bairro" placeholder="Insira seu Bairro"/>
         </div>
+
+        <h3>Pastoral</h3>
+        <Input img={User} type="text" id="lider" placeholder="Insira o nome do seu líder"/>
+        <Input img={User} type="text" id="lider" placeholder="Insira o nome do seu pastor"/>
+        <Input img={User} type="text" id="lider" placeholder="Insira o seu campus"/>
+
+        <button type='submit'>Enviar</button>
       </div>
+
+      <footer>
+        <p>
+          Desenvolvido por <a href="http://">Rafael Oliveira</a>
+        </p>
+      </footer>
     </>
   )
 }
