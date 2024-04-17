@@ -1,28 +1,24 @@
-import './input.css'
+/* eslint-disable react/prop-types */
+
+import styles from './input.module.scss';
 
 
-const Input = ({ img, alt, type, id, value, min, max, placeholder, required, onChange, onClick }) => {    
+const Input = ({img, id, type, placeholder, value, onClick, onChange }) => {
   return (
-    <>
-      <div className="inputComponent">
-        <span>
-          <img src={img} alt={alt} />
-        </span>
-        <input 
-          type={type} 
-          id={id}
-          name={id}
-          value={value}
-          min={min}
-          max={max}
-          placeholder={placeholder}
-          required={required ? true : false}
-          onChange={onChange}
-          onClick={onClick}
-        />
-      </div>
-    </>
-  )
-}
+    <div className={styles.input}>
+      <img src={img} alt="" />
+      
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        onClick={onClick}
+        className={ styles.input}
+      />
+    </div>
+  );
+};
 
 export default Input;

@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.boas_vindas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 650px;
+
+    background-image: url('../assets/image/bg-friends.png');
+    background-size: cover;
+    background-position: center;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+        width: 400px;
+    
+        h1 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 9px;
+        }
+    }
+}
+
+.visao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: #E7E7E7;
+
+    h2 {
+        margin: 20px 0px 10px 0px;
+        font-size: 1.5rem; 
+    }
+
+    div {
+        width: 80%;
+        margin: 0px 0px 20px 0px;
+
+        p{
+            font-size: 12px;
+            margin: 10px;
+            text-align: justify;  
+        }
+    }
+}
+
+.chamada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+
+    width: 100%;
+    padding: 10px;
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 300px;
+        padding: 10px;
+        
+        p {
+            margin-top: 10px;
+
+            text-align: justify;  
+            font-size: 13px;
+            line-height: 1.8;
+
+            strong {
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+
+    }
+}
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;        
+
+        height: 100%;
+
+        margin: 20px;
+
+        border-radius: 10px;
+        border: 1px solid #ccc;
+
+        h3 {
+            margin: 20px 0px;
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        .genero {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin: 10px 0px;
+
+            width: 90%;
+            height: 45px; 
+
+            input {
+                margin: 0px 10px;
+            }
+        }
+        
+        .inputPhone {
+            display: flex;
+            align-items: center;
+            
+            width: 90%;
+            height: 45px; 
+            margin: 5px 0px;
+
+            border-radius: 5px;
+            border: 1px solid #ccc;
+
+            input, button {
+                border: none;
+                width: 100%;
+                margin: 0px 5px;
+            }
+        }
+
+        .endereco {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+
+@media (min-width: 1024px) {
+    .boas_vindas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 650px;
+    
+        background-image: url('../assets/image/bg-friends.png');
+        background-size: cover;
+        background-position: center;
+    
+        div {
+            width: 800px;
+            h1 {
+                font-size: 2.5rem;
+                font-weight: bold;
+            }
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .visao {
+    
+        h2 {
+            margin: 20px 0px 10px 0px;
+            font-size: 2rem;
+        }
+    
+        div {
+            width: 80%;
+            margin: 0px 0px 20px 0px;
+            p {
+                font-size: 14px;
+                text-align: center; 
+            }
+        }
+    }
+
+    .chamada {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+    
+        width: 100%;
+        padding: 10px;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            width: 800px;
+            
+            p {
+                margin-top: 20px;
+    
+                text-align: justify;  
+                font-size: 16px;
+                line-height: 1.8;
+    
+                strong {
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        height: 500px;
+
+        margin: 20px;
+
+        border-radius: 10px;
+        border: 1px solid #ccc;
+
+        h3 {
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+    }
+}
