@@ -1,16 +1,15 @@
-import Header from './components/Header/header'
-import Input from './components/Form/Input/input'
+import Header from '../components/Header/header'
+import Input from '../components/Form/Input/input'
 import fetchAddressByCep from '../api/fetchAddressByCep/fetchAddressByCep'
-
+// Libs
 import { useState } from 'react';
 import { PhoneInput } from 'react-international-phone'
 // Styles
-import styles from './styles/cadastro.module.scss'
-
+import styles from './cadastro.module.scss'
 // Icons
-import User from './assets/icons/Person.svg';
-import Calendar from './assets/icons/Calendar.svg';
-
+import User from '../assets/icons/Person.svg';
+import Calendar from '../assets/icons/Calendar.svg';
+import Footer from '../components/Footer/footer';
 
 const Cadastro = () => {
 
@@ -90,15 +89,6 @@ const Cadastro = () => {
     <>
     <Header/>
     <div>
-      <div className={styles.visao}>
-        <h2>Nossa Visão</h2>
-        <div>
-          <p>A Paz Church Fortaleza é uma comunidade em crescimento, com cultos vibrantes marcados por um louvor inspirador e ministração da Palavra dinâmica.</p>
-          <p>Fundada com base na oração e na orientação do Espírito Santo, a igreja é o ponto de partida do projeto global  Atos em Ação, liderado pelo Pastor Abe.</p>
-          <p>Todos são convidados a fazer parte dessa família acolhedora.</p>
-        </div>
-      </div>
-
       <div className={styles.chamada}>
         <div>
           <p>Se você é novo convertido e ainda não faz parte de um LifeGroup, preencha o formulario abaixo.</p>
@@ -142,11 +132,7 @@ const Cadastro = () => {
         </form>
       </div>
 
-      <footer>
-        <p>
-          Desenvolvido por <a href="http://">Rafael Oliveira</a>
-        </p>
-      </footer>
+      <Footer/>
     </div>
     </>
   )

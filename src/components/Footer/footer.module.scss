@@ -1,0 +1,16 @@
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    a {
+        text-decoration: none;
+        color: #112F5C;
+        font-weight: bold;
+        margin-left: 4px;
+    }
+
+    a:hover {
+        color: #000;
+    }
+}

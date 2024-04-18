@@ -1,28 +1,5 @@
 
-.visao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    background-color: #E7E7E7;
 
-    h2 {
-        margin: 20px 0px 10px 0px;
-        font-size: 1.5rem; 
-    }
-
-    div {
-        width: 80%;
-        margin: 0px 0px 20px 0px;
-
-        p{
-            font-size: 12px;
-            margin: 10px;
-            text-align: justify;  
-        }
-    }
-}
 
 .chamada {
     display: flex;

@@ -1,11 +1,10 @@
-import './footer.css'
-// import { Link } from 'react-router-dom'
+import styles from './footer.module.scss'
 
 const Footer = () => {
   return (
     <>
-        <footer className='footer'>
-            Desenvolvido por Rafael Oliveira
+        <footer className={styles.footer}>
+            Desenvolvido por <a href="https://www.linkedin.com/in/rafasdoliveira/" target='_blank'>Rafael Oliveira</a>
         </footer> 
     </>
   )

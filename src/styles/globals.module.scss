@@ -42,21 +42,32 @@
     }
 }
 
-footer {
+.visao {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 20px;
+    height: 100%;
+    background-color: #E7E7E7;
 
-    a {
-        text-decoration: none;
-        color: #112F5C;
-        font-weight: bold;
+    h2 {
+        margin: 20px 0px 10px 0px;
+        font-size: 1.5rem; 
     }
 
-    a:hover {
-        color: #000;
+    div {
+        width: 80%;
+        margin: 0px 0px 20px 0px;
+
+        p{
+            font-size: 12px;
+            margin: 10px;
+            text-align: justify;  
+        }
     }
 }
+
+
 
 
 @media (min-width: 1024px) {
