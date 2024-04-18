@@ -1,0 +1,20 @@
+{
+    "users": [
+       {
+         "id": 1,
+         "nome": "Nome Exemplo",
+         "dataNascimento": "2000-01-01",
+         "sexo": "Masculino",
+         "telefone": "+5511987654321",
+         "cep": "12345678",
+         "cidade": "Cidade Exemplo",
+         "logradouro": "Rua Exemplo, 123",
+         "numeroCasa": "123",
+         "bairro": "Bairro Exemplo",
+         "lider": "Líder Exemplo",
+         "pastor": "Pastor Exemplo",
+         "campus": "Campus Exemplo"
+       }
+    ]
+   }
+   
