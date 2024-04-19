@@ -5,7 +5,7 @@ import styles from './input.module.scss';
 
 const Input = ({img, id, type, placeholder, value, onClick, onChange }) => {
   return (
-    <div className={styles.input}>
+    <div className={id === "cep" ? styles.inputEndereco : styles.input}>
       <img src={img} alt="" />
       
       <input

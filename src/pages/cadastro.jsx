@@ -119,7 +119,7 @@ const Cadastro = () => {
         </div>
           <Input value={endereco.logradouro} img={User} type="text" id="logradouro" placeholder="Insira seu logradouro" />
         <div className={styles.endereco}>
-          <Input img={User} type="number" id="numeroCasa" placeholder="Insira o número da sua casa" />
+          <Input img={User} type="number" id="cep" placeholder="Insira o número da sua casa" />
           <Input value={endereco.bairro} img={User} type="text" id="Bairro" placeholder="Insira seu Bairro" />
         </div>
 
@@ -127,7 +127,7 @@ const Cadastro = () => {
         <Input value={formDados.lider} img={User} type="text" id="lider" placeholder="Insira o nome do seu líder" />
         <Input value={formDados.pastor} img={User} type="text" id="lider" placeholder="Insira o nome do seu pastor" />
         <Input value={formDados.campus} img={User} type="text" id="lider" placeholder="Insira o seu campus"/>
-
+        
         <button type='submit'>Enviar</button>      
         </form>
       </div>
