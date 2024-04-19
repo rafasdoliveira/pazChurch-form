@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Logo from '../../assets/image/logo-pazChurch.png'
 import './header.css'
 
@@ -5,7 +6,9 @@ const Header = () => {
   return (
     <>
       <header>
-        <img src={Logo} alt="Logo Paz Church" />
+        <Link to="/">
+          <img src={Logo} alt="Logo Paz Church" />
+        </Link>
       </header>
     </>
   )

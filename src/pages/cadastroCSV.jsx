@@ -1,10 +1,35 @@
+import Header from '../components/Header/header'
+import Input from '../components/Form/Input/input'
+// Styles
+import styles from './cadastro.module.scss'
+// Icons
 
-const CadastroCSV = () => {
+import Footer from '../components/Footer/footer';
+
+const Cadastro = () => {
+
   return (
-    <div>
+    <>
+      <Header/>
+      <div className={styles.chamada}>
+        <div>
+          <p>Se você é responsável pelo cadastro de novos convertidos e por algum motivo precisou preencher em uma planilha, aqui é o lugar certo para fazer o envio!</p>
+          <p>
+            <strong>Vamos te auxiliar nesse processo!</strong> 
+          </p>
+        </div>
+
+        <Input type="file" id="csv"/>
+        <button type='submit'>Enviar</button>      
+      </div>
+
+        
       
-    </div>
+     
+
+      <Footer/>
+    </>
   )
 }
 
-export default CadastroCSV
+export default Cadastro

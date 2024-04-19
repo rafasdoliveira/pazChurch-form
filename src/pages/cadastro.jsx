@@ -101,8 +101,8 @@ const Cadastro = () => {
       <div className={styles.form}>
         <form onSubmit={handleSubmit}>
         <h3>Dados Pessoais</h3>
-        <Input value={formDados.nome} img={User} type="text" id="nome" placeholder="Insira seu nome" />
-        <Input value={formDados.dataNascimento} img={Calendar} type="date" id="date" />
+        <Input img={User} type="text" id="nome" placeholder="Insira seu nome" />
+        <Input img={Calendar} type="date" id="date" />
         <div className={styles.genero}>
           <p>Sexo:</p>
           <input value={formDados.sexo} type='radio' name='sexo' /> Masculino
@@ -124,9 +124,9 @@ const Cadastro = () => {
         </div>
 
         <h3>Pastoral</h3>
-        <Input value={formDados.lider} img={User} type="text" id="lider" placeholder="Insira o nome do seu líder" />
-        <Input value={formDados.pastor} img={User} type="text" id="lider" placeholder="Insira o nome do seu pastor" />
-        <Input value={formDados.campus} img={User} type="text" id="lider" placeholder="Insira o seu campus"/>
+        <Input img={User} type="text" id="lider" placeholder="Insira o nome do seu líder" />
+        <Input img={User} type="text" id="lider" placeholder="Insira o nome do seu pastor" />
+        <Input img={User} type="text" id="lider" placeholder="Insira o seu campus"/>
         
         <button type='submit'>Enviar</button>      
         </form>
