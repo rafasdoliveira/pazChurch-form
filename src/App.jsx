@@ -27,7 +27,7 @@ function App() {
         <div>
           <p>A Paz Church Fortaleza é uma comunidade em crescimento, com cultos vibrantes marcados por um louvor inspirador e ministração da Palavra dinâmica.</p>
           <p>Fundada com base na oração e na orientação do Espírito Santo, a igreja é o ponto de partida do projeto global  Atos em Ação, liderado pelo Pastor Abe.</p>
-          <p>Todos são convidados a fazer parte dessa família acolhedora.</p>
+          <p className={styles.convite}>Todos são convidados a fazer parte dessa família acolhedora.</p>
         </div>
       </div>
       <Footer/>
