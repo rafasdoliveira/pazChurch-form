@@ -20,55 +20,34 @@ const Cadastro = () => {
       cidade: "",
       uf: ""
     })
-    const [formDados, setFormDados] = useState({
-      nome: "",
-      dataNascimento: "",
-      sexo: "",
-      telefone: "",
-      cep: "",
-      cidade: "",
-      logradouro: "",
-      numeroCasa: "",
-      bairro: "",
-      lider: "",
-      pastor: "",
-      campus: ""
-    })
   
-    const handleForm = (e) => {
-      const { id, value } = e.target
-      setFormDados({
-        ...formDados,
-        [id]: value
-      })
-    }
-  
+    const [form, setForm] = useState({})
+    console.log({form})
+
     const handleSubmit = async (e) => {
       e.preventDefault()
-      console.log({formDados})
-  
-      try {
-        const url = 'http://localhost:3001/api/user'
-        const response = await sendData(url, formDados)
-        console.log({response})
-      }
-      catch (error) {
-        console.log({error})
-      }
-    }
-  
-    const handleCep = async (e) => {
-      const cep = e.target.value
-      setCep(cep) 
-      setFormDados({
-        ...formDados,
-        cep
+
+      setForm ({
+        nome: "",
+        dataNascimento: "",
+        sexo: "",
+        telefone: "", 
+        lider: "",
+        pastor: "",
+        campus: "", 
       })
-      console.log({cep})
+      setForm("")
+
+    }
+
+    const handleCep = async (e) => {
+      const cepValue = e.target.value
+      setCep(cepValue) 
+      console.log({cepValue})
   
-      if (cep.length === 8) {
+      if (cepValue.length === 8) {
         try {
-          const data =  await fetchAddressByCep(cep)
+          const data =  await fetchAddressByCep(cepValue)
           console.log({ data })
   
           setEndereco({
@@ -78,12 +57,15 @@ const Cadastro = () => {
             cidade: data.localidade,
             uf: data.uf
           })
+
         }
         catch (error) {
           console.log({error})
         }
       }
     }
+    
+    
 
   return (
     <>
@@ -101,32 +83,118 @@ const Cadastro = () => {
       <div className={styles.form}>
         <form onSubmit={handleSubmit}>
         <h3>Dados Pessoais</h3>
-        <Input img={User} type="text" id="nome" placeholder="Insira seu nome" />
-        <Input img={Calendar} type="date" id="date" />
+        <Input 
+          value={form.nome}
+          onChange={(e) => setForm(e.target.value)}  
+          img={User} 
+          type="text" 
+          id="nome" 
+          placeholder="Insira seu nome"  />
+        <Input 
+          value={form.dataNascimento}
+          onChange={(e) => setForm(e.target.value)}
+          img={Calendar} 
+          type="date" 
+          id="date" />
         <div className={styles.genero}>
           <p>Sexo:</p>
-          <input value={formDados.sexo} type='radio' name='sexo' /> Masculino
-          <input value={formDados.sexo} type='radio' name='sexo' /> Feminino
+          <input 
+            value={form.sexo}
+            onChange={(e) => setForm(e.target.value)}
+            type='radio'
+            name='sexo' 
+            id='sexo' 
+            /> 
+          Masculino
+          <input  
+            value={form.sexo}
+            onChange={(e) => setForm(e.target.value)}
+            type='radio' 
+            name='sexo'
+            id='sexo' 
+            /> 
+          Feminino
         </div>
         <div className={styles.inputPhone}>
-          <PhoneInput value={formDados.telefone} defaultCountry='br' defaultMask='( )' />
+          <PhoneInput  
+            defaultCountry='br' 
+            defaultMask='( )'
+            value={form.telefone}
+            onChange={(value) => setForm({...form, telefone: value})} 
+          />
         </div>
 
         <h3>Endereço</h3>
         <div className={styles.endereco}>
-          <Input value={cep} img={User} type="number" id="cep" placeholder="Insira seu CEP" onChange={handleCep}/>
-          <Input value={endereco.cidade} img={User} type="text" id="cidade" placeholder="Insira sua Cidade" />
+          <Input 
+            value={cep} 
+            onChange={handleCep}
+            img={User} 
+            type="number" 
+            id="cep" 
+            placeholder="Insira seu CEP" 
+          />
+          <Input 
+            value={endereco.cidade} 
+            onChange={(e) => setEndereco({...endereco, logradouro: e.target.value})}
+            img={User} 
+            type="text" 
+            id="cidade" 
+            placeholder="Insira sua Cidade" 
+          />
         </div>
-          <Input value={endereco.logradouro} img={User} type="text" id="logradouro" placeholder="Insira seu logradouro" />
+          <Input 
+            value={endereco.logradouro} 
+            onChange={(e) => setForm(e.target.value)}
+            img={User} 
+            type="text" 
+            id="logradouro" 
+            placeholder="Insira seu logradouro" 
+          />
         <div className={styles.endereco}>
-          <Input img={User} type="number" id="cep" placeholder="Insira o número da sua casa" />
-          <Input value={endereco.bairro} img={User} type="text" id="Bairro" placeholder="Insira seu Bairro" />
+          <Input 
+            value={form.numeroCasa}
+            onChange={(e) => setForm(e.target.value)}
+            img={User} 
+            type="number" 
+            id="cep" 
+            placeholder="Insira o número da sua casa" 
+          />
+          <Input 
+            value={endereco.bairro} 
+            onChange={(e) => setForm(e.target.value)}
+            img={User} 
+            type="text" 
+            id="Bairro" 
+            placeholder="Insira seu Bairro" 
+          />
         </div>
 
         <h3>Pastoral</h3>
-        <Input img={User} type="text" id="lider" placeholder="Insira o nome do seu líder" />
-        <Input img={User} type="text" id="lider" placeholder="Insira o nome do seu pastor" />
-        <Input img={User} type="text" id="lider" placeholder="Insira o seu campus"/>
+        <Input 
+          value={form.lider}
+          onChange={(e) => setForm(e.target.value)}
+          img={User} 
+          type="text" 
+          id="lider" 
+          placeholder="Insira o nome do seu líder" 
+        />
+        <Input 
+          value={form.pastor}
+          onChange={(e) => setForm(e.target.value)}
+          img={User} 
+          type="text" 
+          id="lider" 
+          placeholder="Insira o nome do seu pastor" 
+        />
+        <Input 
+          value={form.campus}
+          onChange={(e) => setForm(e.target.value)}
+          img={User} 
+          type="text" 
+          id="lider" 
+          placeholder="Insira o seu campus"
+        />
         
         <button type='submit'>Enviar</button>      
         </form>
