@@ -1,20 +1,34 @@
 {
-    "users": [
-       {
-         "id": 1,
-         "nome": "Nome Exemplo",
-         "dataNascimento": "2000-01-01",
-         "sexo": "Masculino",
-         "telefone": "+5511987654321",
-         "cep": "12345678",
-         "cidade": "Cidade Exemplo",
-         "logradouro": "Rua Exemplo, 123",
-         "numeroCasa": "123",
-         "bairro": "Bairro Exemplo",
-         "lider": "Líder Exemplo",
-         "pastor": "Pastor Exemplo",
-         "campus": "Campus Exemplo"
-       }
-    ]
-   }
-   
+  "users": [
+    {
+      "id": "1",
+      "nome": "Nome Exemplo",
+      "dataNascimento": "2000-01-01",
+      "sexo": "Masculino",
+      "telefone": "+5511987654321",
+      "cep": "12345678",
+      "cidade": "Cidade Exemplo",
+      "logradouro": "Rua Exemplo, 123",
+      "numeroCasa": "123",
+      "bairro": "Bairro Exemplo",
+      "lider": "Líder Exemplo",
+      "pastor": "Pastor Exemplo",
+      "campus": "Campus Exemplo"
+    },
+    {
+      "id": "88cc",
+      "nome": "Rafael Oliveira",
+      "data_nascimento": "2001-01-26",
+      "sexo": "Masculino",
+      "telefone": "+5585998455195",
+      "lider": "Gabriel",
+      "pastor": "San",
+      "campus": "Sede",
+      "cep": "60873-045",
+      "logradouro": "Rua Luís Lourenço de Sousa",
+      "bairro": "Parque Santa Maria",
+      "numeroCasa": "82",
+      "uf": "CE"
+    }
+  ]
+}

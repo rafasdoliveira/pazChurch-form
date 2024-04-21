@@ -4,6 +4,7 @@ import fetchAddressByCep from '../api/fetchAddressByCep/fetchAddressByCep'
 // Libs
 import { useState } from 'react';
 import { PhoneInput } from 'react-international-phone'
+import axios from 'axios';
 // Styles
 import styles from './cadastro.module.scss'
 // Icons
@@ -13,33 +14,26 @@ import Footer from '../components/Footer/footer';
 
 const Cadastro = () => {
 
+    const [form, setForm] = useState({
+      nome: "",
+      data_nascimento: "",
+      sexo: "",
+      telefone: "", 
+      lider: "",
+      pastor: "",
+      campus: "", 
+    })
+
     const [cep, setCep] = useState('')
     const [endereco, setEndereco] = useState({
+      cep: "",
+      cidade: "",
+      numero_casa: "",
       logradouro: "",
       bairro: "",
-      cidade: "",
       uf: ""
     })
   
-    const [form, setForm] = useState({})
-    console.log({form})
-
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-
-      setForm ({
-        nome: "",
-        dataNascimento: "",
-        sexo: "",
-        telefone: "", 
-        lider: "",
-        pastor: "",
-        campus: "", 
-      })
-      setForm("")
-
-    }
-
     const handleCep = async (e) => {
       const cepValue = e.target.value
       setCep(cepValue) 
@@ -52,21 +46,60 @@ const Cadastro = () => {
   
           setEndereco({
             ...endereco,
+            cep: data.cep,
+            cidade: data.localidade,
             logradouro: data.logradouro,
             bairro: data.bairro,
-            cidade: data.localidade,
+            numero_casa: "",
             uf: data.uf
           })
 
+          setForm ({
+            ...form,
+            nome: form.nome,
+            data_nascimento: form.data_nascimento,
+            sexo: form.sexo,
+            telefone: form.telefone, 
+            lider: form.lider,
+            pastor: form.pastor,
+            campus: form.campus, 
+          })
         }
         catch (error) {
           console.log({error})
         }
       }
     }
-    
-    
 
+    console.log({endereco})
+    console.log(form)
+    
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+
+      try {
+        const response = await axios.post('http://localhost:3001/users', {
+          nome: form.nome,
+          data_nascimento: form.data_nascimento,
+          sexo: form.sexo,
+          telefone: form.telefone, 
+          lider: form.lider,
+          pastor: form.pastor,
+          campus: form.campus, 
+          cep: endereco.cep,
+          cidade: endereco.localidade,
+          logradouro: endereco.logradouro,
+          bairro: endereco.bairro,
+          numeroCasa: endereco.numero_casa,
+          uf: endereco.uf
+        }) 
+        console.log({response})
+      }
+      catch(error) {
+        console.log({error})
+      }
+    }
+    
   return (
     <>
     <Header/>
@@ -85,30 +118,30 @@ const Cadastro = () => {
         <h3>Dados Pessoais</h3>
         <Input 
           value={form.nome}
-          onChange={(e) => setForm(e.target.value)}  
+          onChange={(e) => setForm({...form, nome: e.target.value})}
           img={User} 
           type="text" 
           id="nome" 
           placeholder="Insira seu nome"  />
         <Input 
-          value={form.dataNascimento}
-          onChange={(e) => setForm(e.target.value)}
+          value={form.data_nascimento}
+          onChange={(e) => setForm({...form, data_nascimento: e.target.value})}          
           img={Calendar} 
           type="date" 
           id="date" />
         <div className={styles.genero}>
           <p>Sexo:</p>
           <input 
-            value={form.sexo}
-            onChange={(e) => setForm(e.target.value)}
+            value= "Masculino"         
+            onChange={(e) => setForm({...form, sexo: e.target.value})}
             type='radio'
             name='sexo' 
             id='sexo' 
             /> 
           Masculino
           <input  
-            value={form.sexo}
-            onChange={(e) => setForm(e.target.value)}
+            value= "Feminino"         
+            onChange={(e) => setForm({...form, sexo: e.target.value})}
             type='radio' 
             name='sexo'
             id='sexo' 
@@ -136,7 +169,7 @@ const Cadastro = () => {
           />
           <Input 
             value={endereco.cidade} 
-            onChange={(e) => setEndereco({...endereco, logradouro: e.target.value})}
+            onChange={(e) => setEndereco({...endereco, cidade: e.target.value})}
             img={User} 
             type="text" 
             id="cidade" 
@@ -145,7 +178,7 @@ const Cadastro = () => {
         </div>
           <Input 
             value={endereco.logradouro} 
-            onChange={(e) => setForm(e.target.value)}
+            onChange={(e) => setEndereco({...endereco, logradouro: e.target.value})}
             img={User} 
             type="text" 
             id="logradouro" 
@@ -154,7 +187,7 @@ const Cadastro = () => {
         <div className={styles.endereco}>
           <Input 
             value={form.numeroCasa}
-            onChange={(e) => setForm(e.target.value)}
+            onChange={(e) => setEndereco({...endereco, numero_casa: e.target.value})}
             img={User} 
             type="number" 
             id="cep" 
@@ -162,7 +195,7 @@ const Cadastro = () => {
           />
           <Input 
             value={endereco.bairro} 
-            onChange={(e) => setForm(e.target.value)}
+            onChange={(e) => setEndereco({...endereco, bairro: e.target.value})}
             img={User} 
             type="text" 
             id="Bairro" 
@@ -173,7 +206,7 @@ const Cadastro = () => {
         <h3>Pastoral</h3>
         <Input 
           value={form.lider}
-          onChange={(e) => setForm(e.target.value)}
+          onChange={(e) => setForm({...form, lider: e.target.value})} 
           img={User} 
           type="text" 
           id="lider" 
@@ -181,7 +214,7 @@ const Cadastro = () => {
         />
         <Input 
           value={form.pastor}
-          onChange={(e) => setForm(e.target.value)}
+          onChange={(e) => setForm({...form, pastor: e.target.value})} 
           img={User} 
           type="text" 
           id="lider" 
@@ -189,7 +222,7 @@ const Cadastro = () => {
         />
         <Input 
           value={form.campus}
-          onChange={(e) => setForm(e.target.value)}
+            onChange={(e) => setForm({...form, campus: e.target.value})} 
           img={User} 
           type="text" 
           id="lider" 
