@@ -1,16 +1,27 @@
+// Api
+import fetchAddressByCep from '../api/fetchAddressByCep/fetchAddressByCep'
+// Components
 import Header from '../components/Header/header'
 import Input from '../components/Form/Input/input'
-import fetchAddressByCep from '../api/fetchAddressByCep/fetchAddressByCep'
+import Footer from '../components/Footer/footer';
 // Libs
 import { useState } from 'react';
 import { PhoneInput } from 'react-international-phone'
 import axios from 'axios';
+// import { useNavigate } from 'react-router-dom';
 // Styles
 import styles from './cadastro.module.scss'
 // Icons
-import User from '../assets/icons/Person.svg';
 import Calendar from '../assets/icons/Calendar.svg';
-import Footer from '../components/Footer/footer';
+import Church from '../assets/icons/Church.png';
+import Downtown from '../assets/icons/Downtown.png';
+import Local from '../assets/icons/Local.png';
+import Neighbor from '../assets/icons/Neighbor.png';
+import Number from '../assets/icons/Number.png';
+import Person from '../assets/icons/Person.svg';
+import ZipCode from '../assets/icons/ZipCode.png';
+
+
 
 const Cadastro = () => {
 
@@ -31,7 +42,6 @@ const Cadastro = () => {
       numero_casa: "",
       logradouro: "",
       bairro: "",
-      uf: ""
     })
   
     const handleCep = async (e) => {
@@ -93,6 +103,7 @@ const Cadastro = () => {
           numeroCasa: endereco.numero_casa,
           uf: endereco.uf
         }) 
+        alert('Novo convertido cadastrado com sucesso!')
         console.log({response})
       }
       catch(error) {
@@ -119,7 +130,7 @@ const Cadastro = () => {
         <Input 
           value={form.nome}
           onChange={(e) => setForm({...form, nome: e.target.value})}
-          img={User} 
+          img={Person} 
           type="text" 
           id="nome" 
           placeholder="Insira seu nome"  />
@@ -162,7 +173,7 @@ const Cadastro = () => {
           <Input 
             value={cep} 
             onChange={handleCep}
-            img={User} 
+            img={ZipCode} 
             type="number" 
             id="cep" 
             placeholder="Insira seu CEP" 
@@ -170,7 +181,7 @@ const Cadastro = () => {
           <Input 
             value={endereco.cidade} 
             onChange={(e) => setEndereco({...endereco, cidade: e.target.value})}
-            img={User} 
+            img={Downtown} 
             type="text" 
             id="cidade" 
             placeholder="Insira sua Cidade" 
@@ -179,7 +190,7 @@ const Cadastro = () => {
           <Input 
             value={endereco.logradouro} 
             onChange={(e) => setEndereco({...endereco, logradouro: e.target.value})}
-            img={User} 
+            img={Local} 
             type="text" 
             id="logradouro" 
             placeholder="Insira seu logradouro" 
@@ -188,7 +199,7 @@ const Cadastro = () => {
           <Input 
             value={form.numeroCasa}
             onChange={(e) => setEndereco({...endereco, numero_casa: e.target.value})}
-            img={User} 
+            img={Number} 
             type="number" 
             id="cep" 
             placeholder="Insira o número da sua casa" 
@@ -196,7 +207,7 @@ const Cadastro = () => {
           <Input 
             value={endereco.bairro} 
             onChange={(e) => setEndereco({...endereco, bairro: e.target.value})}
-            img={User} 
+            img={Neighbor} 
             type="text" 
             id="Bairro" 
             placeholder="Insira seu Bairro" 
@@ -207,7 +218,7 @@ const Cadastro = () => {
         <Input 
           value={form.lider}
           onChange={(e) => setForm({...form, lider: e.target.value})} 
-          img={User} 
+          img={Person} 
           type="text" 
           id="lider" 
           placeholder="Insira o nome do seu líder" 
@@ -215,15 +226,15 @@ const Cadastro = () => {
         <Input 
           value={form.pastor}
           onChange={(e) => setForm({...form, pastor: e.target.value})} 
-          img={User} 
+          img={Person} 
           type="text" 
           id="lider" 
           placeholder="Insira o nome do seu pastor" 
         />
         <Input 
           value={form.campus}
-            onChange={(e) => setForm({...form, campus: e.target.value})} 
-          img={User} 
+          onChange={(e) => setForm({...form, campus: e.target.value})} 
+          img={Church} 
           type="text" 
           id="lider" 
           placeholder="Insira o seu campus"
