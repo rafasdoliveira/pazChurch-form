@@ -43,7 +43,7 @@ Após a instalação, você pode iniciar o servidor de desenvolvimento localment
 npm run dev
 ``` 
 
-Isso iniciará o servidor de desenvolvimento. Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar o projeto.
+Isso iniciará o servidor de desenvolvimento. Abra [http://localhost:3000](http://localhost:5173) no seu navegador para visualizar o projeto.
 
 ### Testando a Aplicação Completa
 
