@@ -38,7 +38,7 @@ const Cadastro = () => {
     const [cep, setCep] = useState('')
     const [endereco, setEndereco] = useState({
       cep: "",
-      cidade: "",
+      localidade: "",
       numero_casa: "",
       logradouro: "",
       bairro: "",
@@ -56,12 +56,11 @@ const Cadastro = () => {
   
           setEndereco({
             ...endereco,
-            cep: data.cep,
-            cidade: data.localidade,
-            logradouro: data.logradouro,
-            bairro: data.bairro,
-            numero_casa: "",
-            uf: data.uf
+            cep: data.cep ?? "",
+            localidade: data.localidade ?? "",
+            logradouro: data.logradouro ?? "",
+            bairro: data.bairro ?? "",
+            numero_casa: endereco.numero_casa,
           })
 
           setForm ({
@@ -82,13 +81,13 @@ const Cadastro = () => {
     }
 
     console.log({endereco})
-    console.log(form)
+    console.log({form})
     
     const handleSubmit = async (e) => {
       e.preventDefault()
 
       try {
-        const response = await axios.post('http://localhost:3001/users', {
+        const response = await axios.post('http://localhost:3001/cadastroindividual', {
           nome: form.nome,
           data_nascimento: form.data_nascimento,
           sexo: form.sexo,
@@ -107,6 +106,7 @@ const Cadastro = () => {
         console.log({response})
       }
       catch(error) {
+        alert(`Houve algum erro! Entre em contato com o responsável\nErro: ${error}`)
         console.log({error})
       }
     }
@@ -179,8 +179,8 @@ const Cadastro = () => {
             placeholder="Insira seu CEP" 
           />
           <Input 
-            value={endereco.cidade} 
-            onChange={(e) => setEndereco({...endereco, cidade: e.target.value})}
+            value={endereco.localidade} 
+            onChange={(e) => setEndereco({...endereco, localidade: e.target.value})}
             img={Downtown} 
             type="text" 
             id="cidade" 
@@ -197,7 +197,7 @@ const Cadastro = () => {
           />
         <div className={styles.endereco}>
           <Input 
-            value={form.numeroCasa}
+            value={endereco.numero_casa}
             onChange={(e) => setEndereco({...endereco, numero_casa: e.target.value})}
             img={Number} 
             type="number" 
