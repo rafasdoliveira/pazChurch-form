@@ -6,6 +6,7 @@ import Input from '../components/Form/Input/input'
 import Footer from '../components/Footer/footer';
 // Libs
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 import { PhoneInput } from 'react-international-phone'
 import axios from 'axios';
 // import { useNavigate } from 'react-router-dom';
@@ -21,10 +22,9 @@ import Number from '../assets/icons/Number.png';
 import Person from '../assets/icons/Person.svg';
 import ZipCode from '../assets/icons/ZipCode.png';
 
-
-
 const Cadastro = () => {
 
+    const navigate = useNavigate()
     const [form, setForm] = useState({
       nome: "",
       data_nascimento: "",
@@ -43,6 +43,7 @@ const Cadastro = () => {
       logradouro: "",
       bairro: "",
     })
+
   
     const handleCep = async (e) => {
       const cepValue = e.target.value
@@ -73,6 +74,7 @@ const Cadastro = () => {
             pastor: form.pastor,
             campus: form.campus, 
           })
+
         }
         catch (error) {
           console.log({error})
@@ -103,6 +105,7 @@ const Cadastro = () => {
           uf: endereco.uf
         }) 
         alert('Novo convertido cadastrado com sucesso!')
+        navigate('/')
         console.log({response})
       }
       catch(error) {
